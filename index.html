@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joseph Elias Al Khoury | AI Engineer</title>
+  <meta name="description" content="Portfolio of Joseph Elias Al Khoury, AI Engineer building multimodal ML systems, LLM pipelines, and production-ready AI applications." />
+  <meta name="theme-color" content="#070b14" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #070b14;
+      --bg-soft: #0c1220;
+      --panel: rgba(13, 19, 33, 0.82);
+      --panel-strong: rgba(8, 12, 22, 0.96);
+      --line: rgba(255,255,255,0.08);
+      --text: #eef3ff;
+      --muted: #9eacc8;
+      --accent: #65d8ff;
+      --accent-2: #7c5cff;
+      --accent-3: #00ffa3;
+      --shadow: 0 20px 70px rgba(0,0,0,0.45);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(101,216,255,0.12), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(124,92,255,0.18), transparent 24%),
+        radial-gradient(circle at 60% 80%, rgba(0,255,163,0.10), transparent 22%),
+        linear-gradient(180deg, #060913 0%, #070b14 40%, #05070d 100%);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: linear-gradient(to bottom, rgba(255,255,255,0.55), transparent 85%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(5, 8, 14, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 74px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(101,216,255,0.18), rgba(124,92,255,0.3));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 10px 20px rgba(0,0,0,0.25);
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 4.5rem 0 2rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      padding: .5rem .85rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #b9c6e1;
+      font-size: .88rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--accent), var(--accent-3));
+      box-shadow: 0 0 18px rgba(101,216,255,0.8);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 5vw, 5rem);
+      line-height: .98;
+      letter-spacing: -.04em;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #ffffff 5%, #9be5ff 45%, #82a7ff 70%, #8f7bff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.06rem;
+      max-width: 720px;
+      margin: 1.3rem 0 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.8rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+      padding: .95rem 1.2rem;
+      border-radius: 14px;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, rgba(101,216,255,0.18), rgba(124,92,255,0.24));
+      box-shadow: 0 18px 40px rgba(14, 21, 37, 0.6);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 1rem;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -20% -30% auto;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,92,255,0.24), transparent 70%);
+      filter: blur(20px);
+      pointer-events: none;
+    }
+
+    .photo-wrap {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #0c1018;
+      aspect-ratio: 4 / 5;
+    }
+
+    .photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      filter: saturate(1.02) contrast(1.04);
+    }
+
+    .floating-badge {
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .9rem 1rem;
+      background: rgba(5,8,14,0.74);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      backdrop-filter: blur(14px);
+    }
+
+    .floating-badge strong {
+      display: block;
+      font-size: .98rem;
+    }
+
+    .floating-badge span {
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .stats {
+      margin-top: 1.8rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .stat {
+      padding: 1rem 1.1rem;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 18px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.25rem;
+      margin-bottom: .25rem;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    section {
+      padding: 2rem 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      letter-spacing: -.03em;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.3rem;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.3rem;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .about-card {
+      min-height: 100%;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+      margin-top: 1rem;
+    }
+
+    .chip {
+      padding: .6rem .85rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #dce6fa;
+      font-size: .92rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 1.2rem 1.2rem 1.2rem 1.35rem;
+      border-left: 2px solid rgba(101,216,255,0.3);
+      background: rgba(255,255,255,0.03);
+      border-radius: 0 18px 18px 0;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -8px;
+      top: 1.35rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 0 4px rgba(101,216,255,0.08);
+    }
+
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: .45rem;
+    }
+
+    .meta strong {
+      font-size: 1.02rem;
+    }
+
+    .meta span {
+      color: var(--muted);
+      font-size: .93rem;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .project {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      min-height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project::after {
+      content: "";
+      position: absolute;
+      inset: auto -60px -60px auto;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(101,216,255,0.12), transparent 70%);
+      pointer-events: none;
+    }
+
+    .project-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .project-title {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .project p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+      margin-top: auto;
+    }
+
+    .tag {
+      font-size: .82rem;
+      color: #d6e0f8;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: .45rem .7rem;
+      border-radius: 999px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .skill-col h3 {
+      margin: 0 0 .8rem;
+      font-size: 1rem;
+    }
+
+    .skill-list {
+      display: grid;
+      gap: .65rem;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 1rem;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: .85rem;
+      margin-top: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.05rem;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .contact-item small {
+      display: block;
+      color: var(--muted);
+      margin-bottom: .2rem;
+    }
+
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .footer-bar {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    @media (max-width: 1100px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid,
+      .grid-2,
+      .contact-grid,
+      .projects-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 2.7rem;
+      }
+
+      .section-title {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .floating-badge {
+        position: static;
+        margin-top: 1rem;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(var(--max), calc(100% - 1rem));
+      }
+
+      .card,
+      .hero-card {
+        padding: 1rem;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand-mark">AI</span>
+        <span>Joseph Elias Al Khoury</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Artificial Intelligence Engineer</div>
+
+          <h1>
+            Building <span class="gradient">AI systems</span><br>
+            from research to production.
+          </h1>
+
+          <p>
+            I’m Joseph Elias Al Khoury, an AI Engineer focused on multimodal machine learning,
+            LLM pipelines, semantic search, medical imaging, and production-ready AI products.
+            I work across text, images, time series, and tabular data to turn complex signals into useful systems.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-secondary" href="mailto:josepheliaskh@gmail.com">Contact Me</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>15+</strong>
+              <span>GitHub repositories</span>
+            </div>
+
+            <div class="stat">
+              <strong>4</strong>
+              <span>Core data modalities</span>
+            </div>
+
+            <div class="stat">
+              <strong>3</strong>
+              <span>Languages spoken</span>
+            </div>
+
+            <div class="stat">
+              <strong>AI → Prod</strong>
+              <span>Research, backend, deployment</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="photo-wrap">
+            <img src="profile.jpg" alt="Portrait of Joseph Elias Al Khoury" />
+          </div>
+
+          <div class="floating-badge">
+            <div>
+              <strong>Based in France</strong>
+              <span>AI Engineer · ML · LLM Systems</span>
+            </div>
+
+            <div>
+              <strong>Open to impact</strong>
+              <span>Healthcare · SaaS · Applied AI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>About</h2>
+          <p>A dark, technical portfolio built to feel like an AI engineer’s interface: sharp, focused, and built for real work.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card about-card">
+            <p>
+              AI Engineer with experience in data science, machine learning, and Python development.
+              I design and deploy models for heterogeneous data, including images, text, time series, and tabular datasets,
+              and build reproducible pipelines using tools such as Docker, Git, FastAPI, and vector databases.
+            </p>
+
+            <p>
+              My work sits at the intersection of applied research and production systems: from radiomics and survival prediction
+              in medical imaging to RAG assistants, semantic retrieval, and intelligent SaaS features.
+            </p>
+
+            <div class="chip-row">
+              <span class="chip">LLMs &amp; RAG</span>
+              <span class="chip">Multimodal ML</span>
+              <span class="chip">Medical Imaging</span>
+              <span class="chip">FastAPI</span>
+              <span class="chip">Docker</span>
+              <span class="chip">Vector Search</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="meta">
+                  <strong>Current focus</strong>
+                  <span>AI products &amp; applied ML</span>
+                </div>
+                <p>Building LLM pipelines, semantic search workflows, and scalable AI systems that move beyond notebooks into usable products.</p>
+              </div>
+
+              <div class="timeline-item">
+                <div class="meta">
+                  <strong>Research edge</strong>
+                  <span>Healthcare AI</span>
+                </div>
+                <p>Working on survival prediction, radiomic feature engineering, and clinically oriented multimodal modeling.</p>
+              </div>
+
+              <div class="timeline-item">
+                <div class="meta">
+                  <strong>Engineering mindset</strong>
+                  <span>Reproducibility first</span>
+                </div>
+                <p>Strong emphasis on clean pipelines, benchmarking, deployment, and making AI systems robust enough for real environments.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-title">
+          <h2>Experience</h2>
+          <p>Applied AI experience spanning startup products, medical research, and production pipelines.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="card timeline-item">
+            <div class="meta">
+              <strong>AI Engineer &amp; Co-founder · SISSI</strong>
+              <span>France · 2026 – Present</span>
+            </div>
+            <p>
+              Built LLM pipelines for note structuring, summarization, extraction, and prioritization. Implemented semantic search with embeddings and pgvector,
+              designed ingestion-to-insight pipelines, and integrated AI modules into a React, Django REST, and Supabase architecture.
+            </p>
+          </div>
+
+          <div class="card timeline-item">
+            <div class="meta">
+              <strong>Data Scientist in Medical Imaging · Institut Curie (Inserm U1288)</strong>
+              <span>Orsay, France · 2024 – 2025</span>
+            </div>
+            <p>
+              Developed a multimodal survival prediction model for lung cancer using MRI, PET, and clinical data on 180+ patients.
+              Defined and validated new radiomic features integrated into LIFEx, with a scientific manuscript in preparation.
+            </p>
+          </div>
+
+          <div class="card timeline-item">
+            <div class="meta">
+              <strong>AI Intern · Institut Curie (Inserm U1288)</strong>
+              <span>Orsay, France · 2024</span>
+            </div>
+            <p>
+              Rebuilt a radiomics extraction pipeline on brain MRI, optimized it through multi-CPU parallelization, reduced runtime by 40%,
+              containerized the workflow with Docker, and developed predictive models for genomic mutations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-title">
+          <h2>Featured Projects</h2>
+          <p>A selection of projects across legal AI, healthcare modeling, optimization, and practical software tools.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="card project">
+            <div class="project-top">
+              <h3 class="project-title">LegalChatbot</h3>
+              <a href="https://github.com/Joseph-elias/LegalChatbot" target="_blank" rel="noreferrer">↗</a>
+            </div>
+            <p>
+              Intelligent Lebanese legal assistant built for Arabic question answering using a RAG architecture combining SBERT, Gemini, FastAPI, and React.
+            </p>
+            <div class="tag-list">
+              <span class="tag">RAG</span>
+              <span class="tag">SBERT</span>
+              <span class="tag">Gemini</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">React</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project-top">
+              <h3 class="project-title">MediNetFusion</h3>
+              <a href="https://github.com/Joseph-elias/MediNetFusion" target="_blank" rel="noreferrer">↗</a>
+            </div>
+            <p>
+              Multimodal time-series classification project for early type 2 diabetes prediction using 77 biomarkers over 12 months with models including CNN, LSTM, and XGBoost.
+            </p>
+            <div class="tag-list">
+              <span class="tag">CNN</span>
+              <span class="tag">LSTM</span>
+              <span class="tag">XGBoost</span>
+              <span class="tag">Time Series</span>
+              <span class="tag">Healthcare AI</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project-top">
+              <h3 class="project-title">SISSI AI Assistant</h3>
+              <a href="https://github.com/Joseph-elias" target="_blank" rel="noreferrer">↗</a>
+            </div>
+            <p>
+              AI-powered executive assistant SaaS centered on note structuring, semantic retrieval, and insight generation through modern LLM workflows.
+            </p>
+            <div class="tag-list">
+              <span class="tag">LLMs</span>
+              <span class="tag">Embeddings</span>
+              <span class="tag">pgvector</span>
+              <span class="tag">Django REST</span>
+              <span class="tag">Supabase</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project-top">
+              <h3 class="project-title">Hospital Flow Optimization</h3>
+              <a href="https://github.com/Joseph-elias/Multi-Agent-System-for-Optimization-with-Q-Learning" target="_blank" rel="noreferrer">↗</a>
+            </div>
+            <p>
+              Optimization work on emergency department logistics using real-world hospital data, scheduling, prediction, multi-agent systems, and IoT-driven analysis.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Optimization</span>
+              <span class="tag">Q-Learning</span>
+              <span class="tag">Multi-Agent</span>
+              <span class="tag">Healthcare Ops</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project-top">
+              <h3 class="project-title">LLM Picker Extension</h3>
+              <a href="https://github.com/Joseph-elias/Llm-Picker-Extension" target="_blank" rel="noreferrer">↗</a>
+            </div>
+            <p>
+              Utility project focused on improving day-to-day AI workflow ergonomics through a practical extension-oriented interface.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Python</span>
+              <span class="tag">Extensions</span>
+              <span class="tag">AI Workflow</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project-top">
+              <h3 class="project-title">Gym Membership Manager</h3>
+              <a href="https://github.com/Joseph-elias/Gym-Membership-Manager" target="_blank" rel="noreferrer">↗</a>
+            </div>
+            <p>
+              Software project demonstrating practical backend and data handling skills through a management-focused application.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Python</span>
+              <span class="tag">Management App</span>
+              <span class="tag">Backend Logic</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-title">
+          <h2>Skills</h2>
+          <p>Core engineering stack across machine learning, MLOps, data systems, and software development.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="card skill-col">
+            <h3>AI / ML</h3>
+            <div class="skill-list">
+              <span>PyTorch, TensorFlow</span>
+              <span>NLP, LLMs, prompt engineering</span>
+              <span>RAG, embeddings, semantic search</span>
+              <span>Supervised &amp; unsupervised learning</span>
+              <span>Multimodal modeling</span>
+            </div>
+          </div>
+
+          <div class="card skill-col">
+            <h3>MLOps &amp; Deployment</h3>
+            <div class="skill-list">
+              <span>FastAPI, Streamlit, Gradio</span>
+              <span>Docker, Git, Linux shell</span>
+              <span>MLflow</span>
+              <span>Elasticsearch, pgvector</span>
+              <span>Reproducible pipelines</span>
+            </div>
+          </div>
+
+          <div class="card skill-col">
+            <h3>Data &amp; Research</h3>
+            <div class="skill-list">
+              <span>NumPy, Pandas, scikit-learn</span>
+              <span>Feature engineering &amp; benchmarking</span>
+              <span>Spark, Power BI</span>
+              <span>Medical imaging &amp; radiomics</span>
+              <span>Optimization algorithms</span>
+            </div>
+          </div>
+
+          <div class="card skill-col">
+            <h3>Programming</h3>
+            <div class="skill-list">
+              <span>Python, Java, C</span>
+              <span>SystemVerilog, MATLAB, R, SQL</span>
+              <span>HTML, CSS</span>
+              <span>GitHub, GitLab, VS Code</span>
+              <span>SPARQL, UML / SysML</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="grid-2">
+          <div class="card">
+            <div class="section-title" style="margin-bottom:1rem;">
+              <h2 style="font-size:1.4rem;">Education</h2>
+            </div>
+
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="meta">
+                  <strong>Master’s AI</strong>
+                  <span>École Centrale de Lille &amp; University of Lille · 2023 – 2025</span>
+                </div>
+                <p>Graduated with High Honors, with advanced work in artificial intelligence applied to healthcare systems.</p>
+              </div>
+
+              <div class="timeline-item">
+                <div class="meta">
+                  <strong>Bachelor’s in Biomedical Engineering</strong>
+                  <span>Lebanese International University · 2020 – 2023</span>
+                </div>
+                <p>High Honors. Built a strong foundation in electronics, microcontrollers, signal processing, robotics, and medical systems engineering.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="section-title" style="margin-bottom:1rem;">
+              <h2 style="font-size:1.4rem;">Languages</h2>
+            </div>
+
+            <div class="chip-row">
+              <span class="chip">Arabic — Native</span>
+              <span class="chip">English — C1</span>
+              <span class="chip">French — C1</span>
+            </div>
+
+            <div style="height:1rem"></div>
+
+            <div class="section-title" style="margin-bottom:1rem;">
+              <h2 style="font-size:1.4rem;">Career Direction</h2>
+            </div>
+
+            <p style="color:var(--muted); margin:0;">
+              Looking to contribute as an AI Engineer, Applied AI / LLM Engineer, or AI-focused Data Scientist in teams building useful, scalable systems.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-grid">
+        <div class="card">
+          <div class="section-title">
+            <h2>Let’s build something serious.</h2>
+          </div>
+
+          <p style="color:var(--muted); margin-top:0;">
+            Interested in AI engineering, LLM systems, multimodal learning, healthcare AI, or production-ready ML? Reach out through any of the channels below.
+          </p>
+
+          <div class="contact-list">
+            <a class="contact-item" href="mailto:josepheliaskh@gmail.com">
+              <div>
+                <small>Email</small>
+                <strong>josepheliaskh@gmail.com</strong>
+              </div>
+              <span>↗</span>
+            </a>
+
+            <a class="contact-item" href="https://github.com/Joseph-elias" target="_blank" rel="noreferrer">
+              <div>
+                <small>GitHub</small>
+                <strong>github.com/Joseph-elias</strong>
+              </div>
+              <span>↗</span>
+            </a>
+
+            <a class="contact-item" href="https://linkedin.com/in/joseph-elias-al-khoury-0a54a8239" target="_blank" rel="noreferrer">
+              <div>
+                <small>LinkedIn</small>
+                <strong>linkedin.com/in/joseph-elias-al-khoury-0a54a8239</strong>
+              </div>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-title" style="margin-bottom:1rem;">
+            <h2 style="font-size:1.4rem;">Quick Snapshot</h2>
+          </div>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="meta">
+                <strong>Specialties</strong>
+                <span>Applied AI</span>
+              </div>
+              <p>LLM systems, semantic retrieval, multimodal prediction, radiomics, and deployable ML backends.</p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="meta">
+                <strong>Style</strong>
+                <span>Engineer mindset</span>
+              </div>
+              <p>Focused on performance, structure, reproducibility, and practical impact rather than flashy demos.</p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="meta">
+                <strong>Environment</strong>
+                <span>Cross-domain</span>
+              </div>
+              <p>Comfortable in startup contexts, research labs, and interdisciplinary teams solving hard real-world problems.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-bar">
+      <span>© <span id="year"></span> Joseph Elias Al Khoury</span>
+      <span>AI Engineer · Dark modern portfolio · Built for GitHub Pages</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
